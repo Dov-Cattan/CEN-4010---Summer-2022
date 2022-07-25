@@ -83,6 +83,7 @@ if (!isset($_SESSION['uid'])) {
                 <h2><?= $row[1]; ?></h2>
                 <img src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row[4]; ?>" class="img-responsive" style="width:100%" alt="Image">
                 <p><?= $row[1]; ?></p>
+                <p><a href="/update-property.php?pid=<?= $row[0]; ?>">Edit</a></p>
             </div>
         <?php endforeach; ?>
     </div>
