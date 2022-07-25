@@ -23,6 +23,7 @@
     </style>
 </head>
 <body>
+<?php include_once('session.php'); ?>
 <?php include_once('navigation.php'); ?>
 
 <div style="margin-bottom: 0px" class="jumbotron">
@@ -39,14 +40,7 @@
 </div>
 
 <?php
-$mysqli = new mysqli("localhost", "root", "root", "senior");
-
-// Check connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
-
+global $mysqli;
 if (isset($_GET['logout'])) {
     session_destroy();
     header('Location: login.php');
