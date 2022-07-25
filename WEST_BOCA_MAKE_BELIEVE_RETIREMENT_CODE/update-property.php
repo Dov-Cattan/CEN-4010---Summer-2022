@@ -68,7 +68,7 @@ if (!isset($_SESSION['uid'])) {
             $target_video = $_FILES["property_video"]["tmp_name"] ? $target_dir . basename($_FILES["property_video"]["name"]) : '';
             move_uploaded_file($_FILES["property_picture"]["tmp_name"]);
             move_uploaded_file($_FILES["property_video"]["tmp_name"], $target_video);
-            $sql = "UPDATE properties SET name='{$_POST['property_name']}', description='{$_POST['property_description']}', video='{$target_video}', picture='{$target_file}', cost='{$_POST['cost']}' WHERE property_id={$_POST['property_id']}";
+            $sql = "UPDATE properties SET name='{$_POST['property_name']}', description='{$_POST['property_description']}', video='{$_FILES["property_video"]["name"]}', picture='{$_FILES["property_picture"]["name"]}', cost='{$_POST['cost']}' WHERE property_id={$_POST['property_id']}";
             $update = $mysqli->query($sql);
             if (!$update) {
                 echo '<p style="color: red">Sorry, there was an error inserting your property.</p>';
