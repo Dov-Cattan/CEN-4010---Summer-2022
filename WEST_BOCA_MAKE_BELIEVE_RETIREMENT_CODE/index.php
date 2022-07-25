@@ -25,6 +25,12 @@
 <body>
 <?php include_once('session.php'); ?>
 <?php include_once('navigation.php'); ?>
+<?php
+if (!isset($_SESSION['uid'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
 
 <div class="jumbotron">
     <div class="container text-center">

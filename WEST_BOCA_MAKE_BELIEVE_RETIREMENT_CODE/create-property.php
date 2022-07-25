@@ -46,6 +46,12 @@
 <body>
 <?php include_once('session.php'); ?>
 <?php include_once('navigation.php'); ?>
+<?php
+if (!isset($_SESSION['uid'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
 
 <div>
     <div class="container text-center">
@@ -74,12 +80,12 @@
                     $sql = "INSERT INTO properties (name, description, video, picture, cost, uid) VALUES ('{$_POST['property_name']}', '{$_POST['property_description']}', '{$_FILES["property_video"]["name"]}', '{$_FILES["property_picture"]["name"]}', '{$_POST['cost']}', '{$_SESSION['uid']}')";
                     $result = $mysqli->query($sql);
                     if (!$result) {
-                        echo '<p style="color: red">Sorry, there was an error inserting your property.</p>';
+                        echo  "<p style='color: red'>Sorry, there was an error inserting your property. {$mysqli->error}</p>";
                     } else {
                         echo '<p style="color: green">Property successfully created.</p>';
                     }
                 } else {
-                    echo "Sorry, there was an error inserting your property.";
+                    echo "Sorry, there was an error uploading the files";
                 }
             }
             ?>
