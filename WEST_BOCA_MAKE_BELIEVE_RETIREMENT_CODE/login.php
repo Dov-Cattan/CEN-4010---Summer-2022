@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
                 <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image">
                 </li>
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="update-profile.html">Update Profile</a></li>
                 <li><a href="create-property.php">Create Property</a></li>
                 <!--            We dont need this, each property in the home page will have an edit button and thats how you get to this page.-->

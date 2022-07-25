@@ -71,53 +71,23 @@ if (!isset($_SESSION['uid'])) {
     </div>
 </div>
 
-<div class="container-fluid bg-3 text-center">
+<div class="container bg-3 text-center">
     <h3>My Property</h3><br>
     <?php
     $result = $mysqli->query("SELECT * FROM properties WHERE uid={$_SESSION['uid']}");
     $rows = $result->fetch_all();
     ?>
-    <div class="row">
-        <div class="col-sm-3">
-            <p>Stuffed Toy</p>
-            <img src="stuffedtoy.jpg" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Yankees Hat</p>
-            <img src="yankee_hat.jpg" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Cane</p>
-            <img src="cane.png" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Property 4</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
+    <div class="row" style="margin: 0 auto">
+        <?php foreach ($rows as $row) : ?>
+            <div class="col-md-4">
+                <h2><?= $row[1]; ?></h2>
+                <img src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row[4]; ?>" class="img-responsive" style="width:100%" alt="Image">
+                <p><?= $row[1]; ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
-<br>
 
-<div class="container-fluid bg-3 text-center">
-    <div class="row">
-        <div class="col-sm-3">
-            <p>Propert 5</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Property 6</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Property 7.</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Property 8</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-    </div>
-</div>
 <br><br>
 
 <footer class="container-fluid text-center">

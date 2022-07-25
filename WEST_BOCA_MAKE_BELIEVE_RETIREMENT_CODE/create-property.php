@@ -67,7 +67,7 @@ if (!isset($_SESSION['uid'])) {
             <ul class="nav navbar-nav">
                 <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image">
                 </li>
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="update-profile.html">Update Profile</a></li>
                 <li><a href="create-property.php">Create Property</a></li>
                 <!--            We dont need this, each property in the home page will have an edit button and thats how you get to this page.-->
@@ -105,11 +105,11 @@ if (!isset($_SESSION['uid'])) {
             </form>
             <?php
             if (isset($_POST['property_name'])) {
-                $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/';
-                $target_file = $target_dir . basename($_FILES["property_picture"]["name"]);
-                $target_video = $target_dir . basename($_FILES["property_video"]["name"]);
+                $target_dir = dirname(__FILE__);
+                $target_file = $target_dir . '/' . basename($_FILES["property_picture"]["name"]);
+                $target_video = $target_dir . '/' . basename($_FILES["property_video"]["name"]);
                 if (move_uploaded_file($_FILES["property_picture"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["property_video"]["tmp_name"], $target_video)) {
-                    $sql = "INSERT INTO properties (name, description, video, picture, cost, uid) VALUES ('{$_POST['property_name']}', '{$_POST['property_description']}', '$target_video', '$target_file', '{$_POST['cost']}', '{$_SESSION['uid']}')";
+                    $sql = "INSERT INTO properties (name, description, video, picture, cost, uid) VALUES ('{$_POST['property_name']}', '{$_POST['property_description']}', '{$_FILES["property_video"]["name"]}', '{$_FILES["property_picture"]["name"]}', '{$_POST['cost']}', '{$_SESSION['uid']}')";
                     $result = $mysqli->query($sql);
                     if (!$result) {
                         echo '<p style="color: red">Sorry, there was an error inserting your property.</p>';
