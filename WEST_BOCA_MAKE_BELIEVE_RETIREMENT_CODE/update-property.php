@@ -44,26 +44,13 @@
     </style>
 </head>
 <body>
-<?php
-session_start();
-$mysqli = new mysqli("localhost", "root", "root", "senior");
-
-// Check connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
-
-if (!isset($_SESSION['uid'])) {
-    header('Location: login.php');
-    exit;
-}
-?>
+<?php include_once('session.php'); ?>
 <?php include_once('navigation.php'); ?>
 
 <div>
     <div class="container text-center">
         <?php
+        global $mysqli;
         $result = $mysqli->query("SELECT * FROM properties WHERE property_id = {$_GET['pid']}");
         $row = $result->fetch_array();
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/';

@@ -44,21 +44,7 @@
     </style>
 </head>
 <body>
-<?php
-session_start();
-$mysqli = new mysqli("localhost", "root", "root", "senior");
-
-// Check connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
-
-if (!isset($_SESSION['uid'])) {
-    header('Location: login.php');
-    exit;
-}
-?>
+<?php include_once('session.php'); ?>
 <?php include_once('navigation.php'); ?>
 
 <div>
@@ -79,6 +65,7 @@ if (!isset($_SESSION['uid'])) {
                 <input type="submit" value="Submit Property">
             </form>
             <?php
+            global $mysqli;
             if (isset($_POST['property_name'])) {
                 $target_dir = dirname(__FILE__);
                 $target_file = $target_dir . '/' . basename($_FILES["property_picture"]["name"]);

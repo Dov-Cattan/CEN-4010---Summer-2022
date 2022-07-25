@@ -23,45 +23,8 @@
     </style>
 </head>
 <body>
-<?php
-session_start();
-$mysqli = new mysqli("localhost", "root", "root", "senior");
-
-// Check connection
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-    exit();
-}
-
-if (!isset($_SESSION['uid'])) {
-    header('Location: login.php');
-    exit;
-}
-?>
-
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-
-        <div class="navbar-header">
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image">
-                </li>
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="update-profile.html">Update Profile</a></li>
-                <li><a href="create-property.php">Create Property</a></li>
-                <!--            We dont need this, each property in the home page will have an edit button and thats how you get to this page.-->
-                <!--        <li><a href="update-property.html">Update Property</a></li> -->
-                <li><a href="minigame.html">Play Minigame</a></li>
-                <li><a href="#">Authorize Users</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php include_once('session.php'); ?>
+<?php include_once('navigation.php'); ?>
 
 <div class="jumbotron">
     <div class="container text-center">
@@ -74,6 +37,7 @@ if (!isset($_SESSION['uid'])) {
 <div class="container bg-3 text-center">
     <h3>My Property</h3><br>
     <?php
+    global $mysqli;
     $result = $mysqli->query("SELECT * FROM properties WHERE uid={$_SESSION['uid']}");
     $rows = $result->fetch_all();
     ?>
