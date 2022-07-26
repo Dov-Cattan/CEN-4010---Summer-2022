@@ -6,7 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Portfolio</a>
+            <a class="navbar-brand" href="#">The Cane Tank</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -28,6 +28,8 @@
                     <li><a href="login.php?logout=logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
                     </li>
                 <?php endif; ?>
+                <?php include_once('session.php'); ?>
+<?php include_once('navigation.php'); ?>
             </ul>
         </div>
     </div>
