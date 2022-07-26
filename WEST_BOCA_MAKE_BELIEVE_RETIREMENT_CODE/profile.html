@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 <div class="box box2">
+<head>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-    
-      <div class="navbar-header">
-        
-     
-      </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image"></li> 
@@ -30,10 +25,10 @@
           alt="User Uploaded Profile Image"
           loading="lazy"
         />
-          <button class="dropbtn">Dropdown</button>
+          <button class="dropbtn">Profile</button>
           <div class="dropdown-content">
-            <a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
             <a href="#">Edit Profile</a>
+            <a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
           </div>
         </div>
         <ul class="nav navbar-nav navbar-right">
@@ -53,6 +48,7 @@
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <hr>
 <div class="container bootstrap snippets bootdey">
     <h1 style = "color: white;" class="text-primary">Edit Profile</h1>
       <hr>
@@ -62,8 +58,10 @@
         <div class="text-center">
           <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="avatar img-circle img-thumbnail" alt="avatar">
           <h6>Upload a different photo...</h6>
-          
+        <form action="/action_pageGOESHERE.php"> <!--PHP HERE-->
           <input type="file" class="form-control">
+          <input type="submit" value="Submit" class="form-control" >
+        </form>
         </div>
       </div>
       
@@ -99,23 +97,15 @@
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
               <input class="form-control" type="text" value="">
-            </div>
+            </div>  
           </div>
-          <!--<div class="form-group">
-            <label class="col-lg-3 control-label">Time Zone:</label>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"></label>
             <div class="col-lg-8">
               <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                  <option value="Alaska">(GMT-09:00) Alaska</option>
-                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                  <option value="Arizona">(GMT-07:00) Arizona</option>
-                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                </select>
-              </div>-->
+                <input class="form-control" type="submit" value="Submit">
+                <hr>
+              </div>
             </div>
           </div>
         </form>
@@ -135,6 +125,7 @@ height:200px;
       background-image: url('retirement-home.jpg');
       background-repeat: no-repeat;
     }
+
     .box1 {
         background-color: #000;
         color: #fff;
@@ -146,12 +137,18 @@ height:200px;
         color: #fff;
     }
     .navbar {
+      position: fixed;
+      width: 100%;
       margin-bottom: 0;
       border-radius: 0;
+      top:0;
     }
     img {
       width: 45px;
       height: auto;
+    }
+    .text-center {
+      text-align: center;
     }
     /* Dropdown Button */
 .dropbtn {
