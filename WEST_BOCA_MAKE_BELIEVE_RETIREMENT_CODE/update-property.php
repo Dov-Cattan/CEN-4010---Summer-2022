@@ -66,7 +66,7 @@ if (!isset($_SESSION['uid'])) {
             $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/';
             $target_file = $_FILES["property_picture"]["tmp_name"] ? $target_dir . basename($_FILES["property_picture"]["name"]) : '';
             $target_video = $_FILES["property_video"]["tmp_name"] ? $target_dir . basename($_FILES["property_video"]["name"]) : '';
-            move_uploaded_file($_FILES["property_picture"]["tmp_name"]);
+            move_uploaded_file($_FILES["property_picture"]["tmp_name"], $target_file);
             move_uploaded_file($_FILES["property_video"]["tmp_name"], $target_video);
             $sql = "UPDATE properties SET name='{$_POST['property_name']}', description='{$_POST['property_description']}', video='{$_FILES["property_video"]["name"]}', picture='{$_FILES["property_picture"]["name"]}', cost='{$_POST['cost']}' WHERE property_id={$_POST['property_id']}";
             $update = $mysqli->query($sql);

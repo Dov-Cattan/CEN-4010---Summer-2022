@@ -53,6 +53,10 @@ if (!isset($_SESSION['uid'])) {
                 <h2><?= $row[1]; ?></h2>
                 <img src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row[4]; ?>" class="img-responsive" style="width:100%" alt="Image">
                 <p><?= $row[1]; ?></p>
+                <video width="320" height="240" controls>
+                    <source src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row[3]; ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <p><a href="/update-property.php?pid=<?= $row[0]; ?>">Edit</a></p>
             </div>
         <?php endforeach; ?>
