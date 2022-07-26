@@ -17,7 +17,7 @@
                 <li><a href="create-property.php">Create Property</a></li>
                 <!--            We dont need this, each property in the home page will have an edit button and thats how you get to this page.-->
                 <!--        <li><a href="update-property.html">Update Property</a></li> -->
-                <li><a href="minigame.html">Play Minigame</a></li>
+                <li><a href="minigame.php">Play Minigame</a></li>
                 <li><a href="create-ticket.html">Contact IT</a></li>
                 <li><a href="#">Authorize Users</a></li>
             </ul>
