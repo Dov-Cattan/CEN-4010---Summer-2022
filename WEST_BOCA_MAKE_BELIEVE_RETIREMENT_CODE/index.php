@@ -8,13 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        .navbar {
-            margin-bottom: 0;
-            border-radius: 0;
-        }
-
         /* Add a gray background color and some padding to the footer */
         footer {
             background-color: #f2f2f2;
@@ -26,7 +21,7 @@
 <?php include_once('session.php'); ?>
 <?php include_once('navigation.php'); ?>
 <?php
-if (!isset($_SESSION['uid'])) {
+if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
@@ -44,7 +39,7 @@ if (!isset($_SESSION['uid'])) {
     <h3>My Property</h3><br>
     <?php
     global $mysqli;
-    $result = $mysqli->query("SELECT * FROM properties WHERE uid={$_SESSION['uid']}");
+    $result = $mysqli->query("SELECT * FROM properties WHERE uid={$_SESSION['user']['uid']}");
     $rows = $result->fetch_all();
     ?>
     <div class="row" style="margin: 0 auto">

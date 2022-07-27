@@ -13,22 +13,39 @@
                 <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image">
                 </li>
                 <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="update-profile.php">Update Profile</a></li>
                 <li><a href="create-property.php">Create Property</a></li>
                 <li><a href="minigame.php">Play Minigame</a></li>
                 <li><a href="create-ticket.php">Contact IT</a></li>
                 <li><a href="#">Authorize Users</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <?php if (!isset($_SESSION['uid'])) : ?>
-                    <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <div class="nav navbar-nav navbar-right">
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <div class="dropdown">
+                        <?php
+                        $avatar = $_SESSION['user']['uid'] ? "HTTP://" . $_SERVER['HTTP_HOST'] . '/' . $_SESSION['user']['profile_image'] : "https://bootdey.com/img/Content/avatar/avatar7.png";
+                        ?>
+                        <img
+                                src="<?= $avatar; ?>"
+                                class="rounded-circle"
+                                height="22"
+                                alt=""
+                                loading="lazy"
+                        />
+                        <button class="dropbtn">Profile</button>
+                        <div class="dropdown-content">
+                            <a href="update-profile.php">Edit Profile</a>
+                            <a href="login.php?logout=logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+                        </div>
+                    </div>
                 <?php else : ?>
-                    <li><a href="login.php?logout=logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
-                    </li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="register.php">Register</a></li>
+                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
                 <?php endif; ?>
                 <?php include_once('session.php'); ?>
-<?php include_once('navigation.php'); ?>
-            </ul>
+                <?php include_once('navigation.php'); ?>
+            </div>
         </div>
     </div>
 </nav>
