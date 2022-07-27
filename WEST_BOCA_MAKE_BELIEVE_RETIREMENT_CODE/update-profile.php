@@ -76,7 +76,7 @@
                 UPDATE users SET name='{$_POST['name']}', email='{$_POST['email']}', 
                 password='{$_POST['password']}', last_name='{$_POST['last_name']}', profile_image='{$_FILES["profile_image"]["name"]}' 
                 WHERE uid = {$_SESSION['user']['uid']};                
-                EOD;
+EOD;
             $update = $mysqli->query($sql);
             if (!$update) {
                 echo '<p style="color: red">Sorry, there was an error inserting your property.</p>';
