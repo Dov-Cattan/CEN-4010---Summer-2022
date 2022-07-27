@@ -52,8 +52,6 @@ if (!isset($_SESSION['user'])) {
     <div class="container text-center">
         <?php
         global $mysqli;
-        $result = $mysqli->query("SELECT * FROM properties WHERE property_id = {$_GET['pid']}");
-        $row = $result->fetch_array();
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/';
         $target_file = $target_dir . basename($_FILES["property_picture"]["name"]);
         $target_video = $target_dir . basename($_FILES["property_video"]["name"]);
@@ -71,6 +69,8 @@ if (!isset($_SESSION['user'])) {
                 echo '<p style="color: green">Property successfully updated.</p>';
             }
         }
+        $result = $mysqli->query("SELECT * FROM properties WHERE property_id = {$_GET['pid']}");
+        $row = $result->fetch_array();
         if ($result->num_rows) : ?>
             <div class="sub-container">
                 <h1>Update Property</h1>
