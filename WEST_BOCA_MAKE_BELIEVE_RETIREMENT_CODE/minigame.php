@@ -24,8 +24,8 @@
 
         .main-container {
             background-color: #aaa8a8;
-            height: 750px;
-            width: 900px;
+            height: 700px;
+            width: 475px;
             margin: 0 auto;
         }
 
@@ -90,7 +90,7 @@
             text-align: center;
 
 
-            color: rgb(243, 255, 79);
+            color: rgb(243, 255, 7);
             margin-left: auto;
             margin-right: auto;
             cursor: pointer;
