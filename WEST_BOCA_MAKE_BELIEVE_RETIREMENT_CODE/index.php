@@ -40,19 +40,25 @@ if (!isset($_SESSION['user'])) {
     <?php
     global $mysqli;
     $result = $mysqli->query("SELECT * FROM properties WHERE uid={$_SESSION['user']['uid']}");
-    $rows = $result->fetch_all();
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
     ?>
     <div class="row" style="margin: 0 auto">
         <?php foreach ($rows as $row) : ?>
             <div class="col-md-4">
-                <h2><?= $row[1]; ?></h2>
-                <img src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row[4]; ?>" class="img-responsive" style="width:100%" alt="Image">
+                <h2><?= $row['name']; ?></h2>
+                <?php if ($row['picture']) : ?>
+                    <img src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row['picture']; ?>" class="img-responsive"
+                         style="width:100%" alt="Image">
+                <?php endif; ?>
                 <p><?= $row[1]; ?></p>
-                <video width="320" height="240" controls>
-                    <source src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row[3]; ?>" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p><a href="/update-property.php?pid=<?= $row[0]; ?>">Edit</a></p>
+                <?php if ($row['video']) : ?>
+                    <video width="320" height="240" controls>
+                        <source src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row['video']; ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                <?php endif; ?>
+                <p><a href="/update-property.php?pid=<?= $row['property_id']; ?>">Edit</a> | <a
+                            href="/update-property.php?delete=<?= $row['property_id']; ?>">Delete</a></p>
             </div>
         <?php endforeach; ?>
     </div>

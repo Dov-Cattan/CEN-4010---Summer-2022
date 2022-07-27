@@ -57,9 +57,9 @@ if (!isset($_SESSION['user'])) {
                 <input required type="text" name="property_name" id="property-name"><br/>
                 <label for="property-description">Description: </label><br/>
                 <textarea required name="property_description" id="property-description" cols="30" rows="10"></textarea><br/>
-                <label>Video: </label><br/><input accept=".mp4" required type="file" name="property_video"
+                <label>Video: </label><br/><input accept=".mp4" type="file" name="property_video"
                                                   id="property-video">
-                <label>Pictures: </label><br/><input type="file" accept=".jpg, .jpeg, .png, .gif" required
+                <label>Pictures: </label><br/><input type="file" accept=".jpg, .jpeg, .png, .gif"
                                                      name="property_picture" id="property-picture"
                                                      multiple>
                 <label for="cost">Cost: </label><br/><input required type="text" name="cost" id="cost"><br/>
@@ -68,21 +68,22 @@ if (!isset($_SESSION['user'])) {
             <?php
             global $mysqli;
             if (isset($_POST['property_name'])) {
+                $error = [];
                 $target_dir = dirname(__FILE__);
                 $target_file = $target_dir . '/' . basename($_FILES["property_picture"]["name"]);
                 $target_video = $target_dir . '/' . basename($_FILES["property_video"]["name"]);
-                if (move_uploaded_file($_FILES["property_picture"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["property_video"]["tmp_name"], $target_video)) {
-                    $sql = "INSERT INTO properties (name, description, video, picture, cost, uid) VALUES ('{$_POST['property_name']}', '{$_POST['property_description']}', '{$_FILES["property_video"]["name"]}', '{$_FILES["property_picture"]["name"]}', '{$_POST['cost']}', '{$_SESSION['user']['uid']}')";
-                    $result = $mysqli->query($sql);
-                    if (!$result) {
-                        echo  "<p style='color: red'>Sorry, there was an error inserting your property. {$mysqli->error}</p>";
-                    } else {
-                        echo '<p style="color: green">Property successfully created.</p>';
-                    }
+                move_uploaded_file($_FILES["property_picture"]["tmp_name"], $target_file);
+                move_uploaded_file($_FILES["property_video"]["tmp_name"], $target_video);
+
+                $sql = "INSERT INTO properties (name, description, video, picture, cost, uid) VALUES ('{$_POST['property_name']}', '{$_POST['property_description']}', '{$_FILES["property_video"]["name"]}', '{$_FILES["property_picture"]["name"]}', '{$_POST['cost']}', '{$_SESSION['user']['uid']}')";
+                $result = $mysqli->query($sql);
+                if (!$result) {
+                    echo "<p style='color: red'>Sorry, there was an error inserting your property. {$mysqli->error}</p>";
                 } else {
-                    echo "Sorry, there was an error uploading the files";
+                    echo '<p style="color: green">Property successfully created.</p>';
                 }
             }
+
             ?>
         </div>
     </div>

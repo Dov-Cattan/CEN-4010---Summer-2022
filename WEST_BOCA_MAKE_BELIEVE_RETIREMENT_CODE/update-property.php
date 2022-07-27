@@ -52,6 +52,13 @@ if (!isset($_SESSION['user'])) {
     <div class="container text-center">
         <?php
         global $mysqli;
+
+        if (isset($_GET['delete'])) {
+            $result = $mysqli->query("DELETE FROM properties WHERE property_id = {$_GET['delete']}");
+            header('Location: index.php');
+            exit;
+        }
+
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . '/';
         $target_file = $target_dir . basename($_FILES["property_picture"]["name"]);
         $target_video = $target_dir . basename($_FILES["property_video"]["name"]);
@@ -82,9 +89,9 @@ if (!isset($_SESSION['user'])) {
                     <textarea required name="property_description" id="property-description" cols="30"
                               rows="10"><?= $row['description']; ?></textarea><br/>
                     <label>Video: </label><br/>
-                    <input accept=".mp4"  type="file" name="property_video" id="property-video">
+                    <input accept=".mp4" type="file" name="property_video" id="property-video">
                     <label>Picture: </label><br/>
-                    <input type="file" accept=".jpg, .jpeg, .png, .gif"  name="property_picture"
+                    <input type="file" accept=".jpg, .jpeg, .png, .gif" name="property_picture"
                            id="property-picture" multiple>
                     <label for="cost">Cost: </label><br/><input required type="text" name="cost" id="cost"
                                                                 value="<?= $row['cost']; ?>"><br/>
