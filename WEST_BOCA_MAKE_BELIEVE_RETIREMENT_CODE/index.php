@@ -46,11 +46,12 @@ if (!isset($_SESSION['user'])) {
         <?php foreach ($rows as $row) : ?>
             <div class="col-md-4">
                 <h2><?= $row['name']; ?></h2>
+                <p><?= $row['description']; ?></p>
+                <p><?= $row['cost']; ?></p>
                 <?php if ($row['picture']) : ?>
                     <img src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row['picture']; ?>" class="img-responsive"
                          style="width:100%" alt="Image">
                 <?php endif; ?>
-                <p><?= $row[1]; ?></p>
                 <?php if ($row['video']) : ?>
                     <video width="320" height="240" controls>
                         <source src="http://<?= $_SERVER['HTTP_HOST'] . '/' . $row['video']; ?>" type="video/mp4">
