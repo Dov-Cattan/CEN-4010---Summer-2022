@@ -19,7 +19,7 @@
                 <li><a href="minigame.php">Play Minigame</a></li>
                 <?php if (isset($_SESSION['user'])) : ?>
                     <li><a href="create-ticket.php">Contact IT</a></li>
-                    <li><a href="#">Authorize Users</a></li>
+                    <li><a href="authorize-users.php">Authorize Users</a></li>
                 <?php endif; ?>
             </ul>
             <div class="nav navbar-nav navbar-right">
