@@ -24,8 +24,8 @@
 
         .main-container {
             background-color: #aaa8a8;
-            height: 750px;
-            width: 420px;
+            height: auto;
+            width: auto;
             margin: 0 auto;
         }
 
@@ -42,9 +42,9 @@
 
         .cell {
 
-            width: 140px;
-            height: 140px;
-            border: 10px solid rgb(0, 0, 0);
+            width: 127px;
+            height: 127px;
+            border: 5px solid rgb(0, 0, 0);
             box-sizing: border-box;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
