@@ -24,7 +24,7 @@
 
         .main-container {
             background-color: #aaa8a8;
-            height: 700px;
+            height: 750px;
             width: 420px;
             margin: 0 auto;
         }
@@ -114,6 +114,8 @@
 
         body {
             background-color: #aaa8a8;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
     <script type="text/javascript">
