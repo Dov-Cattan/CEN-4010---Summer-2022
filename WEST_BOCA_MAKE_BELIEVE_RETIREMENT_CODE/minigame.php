@@ -25,7 +25,7 @@
         .main-container {
             background-color: #aaa8a8;
             height: 700px;
-            width: 475px;
+            width: 420px;
             margin: 0 auto;
         }
 
