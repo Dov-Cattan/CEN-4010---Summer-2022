@@ -52,11 +52,14 @@ if (!isset($_SESSION['user'])) {
     <div class="container text-center">
         <div class="sub-container">
             <h1>Submit a Ticket</h1>
-            <form action="">
-                <label for="problem-name">Name: </label><br><input type="text" name="problem-name" id="problem-name"><br>
-                <label for="problem-contact">Contact Info: </label><br><input type="text" name="problem-contact" id="problem-contact">
+            <?php if (isset($_POST['problem_name'])) : ?>
+                <p style="color: green; text-align: center">A support agent will be in touch soon. Thank You!</p>
+            <?php else : ?>
+            <form action="" method="post">
+                <label for="problem-name">Name: </label><br><input type="text" name="problem_name" id="problem-name"><br>
+                <label for="problem-contact">Contact Info: </label><br><input type="text" name="problem_contact" id="problem-contact">
                 <label for="problem-description">Problem: </label><br>
-                <textarea name="problem-description" id="problem-description" cols="30" rows="10"></textarea><br>
+                <textarea name="problem_description" id="problem-description" cols="30" rows="10"></textarea><br>
                 <input type="submit" value="Submit">
             </form>
         </div>
