@@ -13,10 +13,14 @@
                 <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image">
                 </li>
                 <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="create-property.php">Create Property</a></li>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <li><a href="create-property.php">Create Property</a></li>
+                <?php endif; ?>
                 <li><a href="minigame.php">Play Minigame</a></li>
-                <li><a href="create-ticket.php">Contact IT</a></li>
-                <li><a href="#">Authorize Users</a></li>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <li><a href="create-ticket.php">Contact IT</a></li>
+                    <li><a href="#">Authorize Users</a></li>
+                <?php endif; ?>
             </ul>
             <div class="nav navbar-nav navbar-right">
                 <?php if (isset($_SESSION['user'])) : ?>
