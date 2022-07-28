@@ -133,8 +133,8 @@
 
 <div class="jumbotron">
     <div class="container text-center">
-        <h1>The Cane Tank</h1>
-        <p> This is a tank where you can place all of your property including your supplies
+        <h1>Minigame:</h1>
+        <p> Tic-Tac-Toe
         </p>
     </div>
 </div>
