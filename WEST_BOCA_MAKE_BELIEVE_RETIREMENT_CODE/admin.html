@@ -1,66 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+<div class="box box2">
 <head>
-  <title>Admin Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-  </style>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><img src="thecanetanklogo.png" class="img-responsive" style="width:50px;height:50px" alt="Image"></li> 
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="update-profile.html">Update Profile</a></li>
+          <li><a href="create-property.html">Create Property</a></li>
+          <li><a href="update-property.html">Update Property</a></li>
+          <li><a href="minigame.html">Play Minigame</a></li>
+          <li><a href="create-ticket.html">Contact IT</a></li>
+          <li><a href="#">Authorize Users</a></li>
+          <!--<li><a href="#">Contact</a></li>-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <div class="dropdown">
+          <img
+          src="fau.jpg"
+          class="rounded-circle"
+          height="22"
+          alt="User Uploaded Profile Image"
+          loading="lazy"
+        />
+          <button class="dropbtn">Profile</button>
+          <div class="dropdown-content">
+            <a href="#">Edit Profile</a>
+            <a href="#">ViewTicket</a>
+            <a href="#">Authorize Users</a>
+
+            <a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+          </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <!--<li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Portfolio</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Login</h1>
-    <form>
-    <label>Username: </label><input type="text"></label>
-    <label>Username: </label><input type="text"></label>
-    <button type="submit" form="form1" value="Submit">Submit</button>
-  </form>
+  <hr>
+<div class="container bootstrap snippets bootdey">
+    <h1 style = "color: white;" class="text-primary">Admin</h1>
+      <hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="box box2">
+        <div class="text-center">
+          <img src="fau.jpg" class="avatar img-circle img-thumbnail" alt="avatar">
+          <h6>Upload a different photo...</h6>
+        <form action="/action_pageGOESHERE.php"> <!--PHP HERE-->
+          <input type="file" class="form-control">
+          <input type="submit" value="Submit" class="form-control" >
+        </form>
+        </div>
+      </div>
+      
+      <!-- edit form column -->
+      <div class="box box2">
+        <!--<div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a> 
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>-->
+        <h3>Personal info</h3>
+        
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Password:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="">
+            </div>  
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"></label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <input class="form-control" type="submit" value="Submit">
+                <hr>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
   </div>
 </div>
+<hr>
 
+<style type="text/css">
+				                
+body{margin-top:20px;}
+.avatar{
+width:200px;
+height:200px;
+}				              
+    body {
+      background-image: url('admin-img.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .box1 {
+        background-color: #000;
+        color: #fff;
+        opacity: .5;
+    }
+    
+    .box2 {
+        background-color: rgba(0,0,0,.5);
+        color: #fff;
+    }
+    .navbar {
+      position: fixed;
+      width: 100%;
+      margin-bottom: 0;
+      border-radius: 0;
+      top:0;
+    }
+    img {
+      width: 45px;
+      height: auto;
+    }
+    .text-center {
+      text-align: center;
+    }
+    /* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+        
+</style>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p>Made By Dov Cattan, Justin Sison, Serwin Kastaneer, Eric Palomino, and Juan Lopez Restrepo</p>
 </footer>
 
 </body>
