@@ -79,7 +79,7 @@
 EOD;
             $update = $mysqli->query($sql);
             if (!$update) {
-                echo '<p style="color: red">Sorry, there was an error inserting your property.</p>';
+                echo '<p style="color: red">Sorry, there was an error inserting your profile.</p>';
             } else {
                 echo '<p style="color: green; text-align: center">Profile successfully updated.</p>';
             }
@@ -114,6 +114,7 @@ EOD;
             <div class="form-group">
                 <label class="col-lg-3 control-label">Password:</label>
                 <div class="col-lg-8">
+                    <p>Must be 8 Characters long, including a number and a symbol.</p>
                     <input required class="form-control" name="password" type="password" value="<?= $row['password']; ?>">
                 </div>
             </div>
