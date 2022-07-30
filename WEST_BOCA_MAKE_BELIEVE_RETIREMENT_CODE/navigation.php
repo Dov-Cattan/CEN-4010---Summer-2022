@@ -21,7 +21,7 @@
                     <li><a href="authorize-users.php">Authorize Users</a></li>
                     <li><a href="minigame.php">Play Minigame</a></li>
                 <?php endif; ?>
-                <?php if (isset($_SESSION['user']) && $_SESSION['role'] == "admin") : ?>
+                <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] == "admin") : ?>
                     <li><a href="admin.php">Admin Panel</a></li>
                 <?php endif; ?>
             </ul>
